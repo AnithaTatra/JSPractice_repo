@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Class Expression</h3>
+    <script>
+        //unnamed class
+        let Rectangle = class{
+            constructor(height,width){
+                this.height = height;
+                this.width = width;
+            }
+        };
+        console.log(Rectangle.name);   //name is a property ..we can access unnamed class via "name" property.
+
+        //named class
+        let Triangle =class Rectangle1{
+            constructor(height,width){
+                this.height = height;
+                this.width = width;
+            }
+        };
+        console.log(Triangle.name);
+
+        //Prototype methods
+        class Rectangle2{
+            constructor(height,width){
+                this.height = height;
+                this.width = width;
+            }
+            //getter
+            get area(){
+                return this.calArea();
+            }
+            calArea(){
+                return this.height * this.width;
+            }
+        }
+        const square = new Rectangle2(10,10);
+        console.log(square.area);
+       
+        //Generator methods
+        class Polygon{
+            constructor(...sides){
+                this.sides = sides;
+            }
+            *getSides(){
+                for(const side of this.sides){
+                    yield side;       //yield is a keyword which pauses value to generator function and returns that values
+                }
+            }
+        }
+        const pentagon = new Polygon(1,2,3,4,5);
+        console.log([...pentagon.getSides()]);
+    </script>
+</body>
+</html>
