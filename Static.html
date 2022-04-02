@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Static methods and Properties</h2>
+ <script>
+     class Point{
+         constructor(x,y){
+             this.x=x;
+             this.y=y;
+         }
+         static displayName = "Quartz";
+         static distance(a,b){
+             const dx = a.x - b.x;
+             const dy = a.y - b.y;
+             return Math.hypot(dx,dy);
+         }
+        }
+         const p1 = new Point(5,5);
+         const p2 = new Point(10,10);
+         document.write(Point.displayName);
+         document.write("<br>");
+         document.write(Point.distance(p1,p2)); 
+ </script>   
+</body>
+</html>

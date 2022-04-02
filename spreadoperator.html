@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>SpreadOperator</h2>
+    <script>
+        const spread={id:1,name:"Spread"}
+        const spreadEx={...spread}
+        spreadEx.name="Sekhar";
+        console.log("SpreadOpertor.."+JSON.stringify(spread));
+        console.log("Spread.."+JSON.stringify(spreadEx));
+
+        //assign
+
+        const assignEx={id:1,name:"Chinni"}
+        const assignEx001=Object.assign({},assignEx);
+        assignEx001.id=12;
+        console.log("AssignEx....",assignEx);
+        console.log("AssignEx0012..",assignEx001);
+         //Nested Json
+        const as={id:10,name:"Chinni",city:{District:"Chittoor"}}
+        const jsondata=JSON.parse(JSON.stringify(as));  
+        jsondata. city.District="Tirupathi";
+        as.id=11;
+        console.log("Json.."+JSON.stringify(as));
+        console.log("JsonData..+"+JSON.stringify(jsondata));
+        
+        //Array
+        const arry001=[1,2,3]
+        const arry002=arry001;
+
+        arry002[0]=10;
+        console.log("Array001"+arry001);
+        console.log("Array0012"+arry002);
+
+        //Array of SpreadOperator
+        const arr =[20,30,40];
+        const arr1 = {...arr};
+         arr[1] = 50;
+        console.log(arr1);
+        console.log(arr);
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

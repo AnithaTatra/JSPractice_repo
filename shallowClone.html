@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const shlow={id:1,name:"sekhar"}
+    const shallowClone=shlow;  //Cloned
+    shallowClone.id=10;
+    console.log("Shllow...",shlow);
+    console.log("shalloweClone..."+shallowClone);
+
+    //Deep Clone
+    let a=4;
+    let b=a; //deep clone
+    b=10;
+    console.log("a....."+a);
+    console.log("b...."+b);
+</script>
+</html>
