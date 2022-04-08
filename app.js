@@ -1,26 +1,35 @@
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
-//const envData = require("./env.json");
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+require('dotenv').config();
+const employeeRouter = require('./route/employee.route');
 
 
-const app = express();
-const port = process.env.port || 5000;
+const val = express();
+val.use(cors());
+const port = process.env.PORT||6000;
 
-app.get('/testCheck' , async(req,res)=>{
-   app.use(cors());
-       res.send({status:'success'})
+val.get("/apiCheck", async(req,res)=>{
+    console.log("Welcome JavaScript");
+    res.send({status:'success'})
 })
-try {
-    mongoose.connect( 'mongodb://localhost/emp', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-      }, () =>
-      console.log("Database connected"));
-  } catch (error) {
-    console.log("could not connect");
-  }
-app.listen(port,()=>{
 
-    console.log("server started  at 5000 port");
-})
+    mongoose.connect(process.env.dbUrl,{
+        useNewUrlParser :true,
+        useUnifiedTopology : true
+        
+    }).then(data =>{
+        console.log("Database connected");
+    }).catch(err=>{
+        console.log(err.message);
+        process.exit(1);
+    })
+     
+val.use(express.json());
+val.use('/api/v1/employee/',employeeRouter);
+    
+
+val.listen(port,()=>{
+    console.log("Server started at 6000 port number");
+});
+
